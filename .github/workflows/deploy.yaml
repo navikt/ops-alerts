@@ -1,0 +1,23 @@
+name: Deploy alertmanagerconfig
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "alertmanagerconfig.yaml"
+      - ".github/workflows/deploy.yaml"
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: nais/deploy/actions/deploy@v2
+        env:
+          CLUSTER: prod-gcp
+          RESOURCE: alertmanagerconfig.yaml
