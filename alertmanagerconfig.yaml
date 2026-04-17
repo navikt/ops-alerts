@@ -48,6 +48,6 @@ spec:
     matchers:
       - matchType: =~
         name: namespace
-        value: teamfrikort|teamdigisos
+        value: teamdigisos
     receiver: ops-receiver
     repeatInterval: 1h
